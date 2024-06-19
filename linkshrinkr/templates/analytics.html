@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block title %} Analytics {% endblock %}
+
+{% block content %}
+
+<nav>
+
+    <h4>Link Shrinkr</h4>
+    <div class="links">
+        <a href={{ url_for('index') }} class="navbtn">Home</a>
+        <a href={{ url_for('logout') }} class="navbtn">Logout</a>
+    </div>
+</nav>
+<div class="nihal">
+<h2 id="analytics">Links analytics</h1>
+{% if urls %}
+<table>
+    <tr>
+        <th>URL</th>
+        <th>Short URL</th>
+        <th>IP Address</th>
+        <th>Timecode</th>
+    </tr>
+    {% for url in urls %}
+    {% for visit in url.visits %}
+    <tr>
+        <td>{{ visit.url.url }}</td>
+        <td>{{ visit.url.short_url }}</td>
+        <td>{{ visit.ip_address }}</td>
+        <td>{{ visit.timestamp }}</td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}

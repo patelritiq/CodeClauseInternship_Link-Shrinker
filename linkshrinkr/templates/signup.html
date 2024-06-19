@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block title %} Sign up {% endblock %}
+{% block content %}
+
+<div class="content-signin">
+    <div class="form-container">
+        <h1 class='heading'>Link Shrinkr</h1>
+        <h2>Sign up</h2>
+        {% if error %}
+        <p style="color: red;"><strong>{{ error }}</strong></p>
+        {% endif %}
+        <form action="{{ url_for('signup') }}" method="post">
+            <div class="container">
+                <label for="uname" class='label-class'><b>Username:</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required class='inpt'>
+                <label for="email" class='label-class2'><b>Email:</b></label>
+                <input type="email" placeholder="abc@email.com" name="email" required class='inpt'>
+                <label for="psw" class='label-class'><b>Password:</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required class='inpt'>
+                <label for="psw" class='label-class3'><b>Confirm password:</b></label>
+                <input type="password" placeholder="Enter Password again" name="confirm_password" required class='inpt'>
+                <button type="submit" class='lgbtn'>Sign up</button>
+            </div>
+            <p>Existing User..? <a href={{ url_for('signin') }} class='suan'>Sign in</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

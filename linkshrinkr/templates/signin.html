@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block title %} Sign 
+in {% endblock %}
+{% block content %}
+
+
+<div class="content-signin">
+    <div class="form-container">
+        <h1 class='heading'>Link Shrinkr</h1>
+        <h2>Sign in</h2>
+        {% if error %}
+        <p style="color: red;"><strong>{{ error }}</strong></p>
+        {% endif %}
+        <form action="{{ url_for('signin') }}" method="post">
+            <div class="container">
+                <div class="form-group">
+                    <label for="username" class='label-class'><b>Username:</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required class='inpt'>
+                </div>
+                <div class="form-group">
+                    <label for="password" class='label-class'><b>Password:</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required class='inpt'>
+                </div>
+                <button type="submit" class='lgbtn'>Sign in</button>
+            </div>
+            <p>New User..? <a href={{ url_for('signup') }} class='suan'>Sign up</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
